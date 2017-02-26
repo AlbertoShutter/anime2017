@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+	 <data>
+	 	<!--  Vamos a grabar datos  -->
+	 	<record id="anime2017__modelo_tree" model="ir.ui.view">
+	 		<field name="name">anime2017.modelo.tree</field>
+	 		<field name="model">anime2017.modelo</field>
+            	<field name="arch" type="xml">
+            	   <tree string ="Listado de Animes">
+            	   	  <field name="name"/>
+										<field name="nota"/>
+										<field name="fuente"/>
+										<field name="capitulos"/>
+										<field name="calificacion"/>
+            	   </tree>
+                </field>
+	    </record>
+
+
+	   <!--  Vamos a grabar datos  -->
+	 	<record id="anime2017_modelo_form" model="ir.ui.view">
+	 		<field name="name">anime2017.modelo.form</field>
+	 		<field name="model">anime2017.modelo</field>
+            	<field name="arch" type="xml">
+            	   <form string ="Formulario de Animes" version="9.0">
+            	   	<!--  Cuerpo  -->
+            	   	<sheet>
+            	   	<group>
+										 <field name="portada" widget='image'/>
+            	   		 <field name="name"/>
+										 <field name="nom_orig"/>
+										 <field name="tipo"/>
+										 <field name="capitulos"/>
+										 <field name="estado"/>
+										 <field name="fecha_ini"/>
+										 <field name="fecha_end"/>
+										 <field name="season"/>
+										 <field name="autor"/>
+										 <field name="estudio"/>
+            	   	   <field name="genero"/>
+                     <field name="fuente"/>
+										 <field name="nota"/>
+										 <field name="duracion"/>
+										 <field name="calificacion"/>
+            	   	</group>
+            	   	</sheet>
+            	   	 </form>
+                </field>
+	    </record>
+
+        <!--  Definimos los eventos -->
+        <record id="anime2017_modelo_action" model="ir.actions.act_window">
+        	<field name="name">Anime2017</field>
+        	<field name="res_model">anime2017.modelo</field>
+        	<field name="view_type">form</field>
+        	<field name="view_mode">tree,form</field>
+        </record>
+
+        <!--  Definimos el menu-->
+        <menuitem id="anime2017_modelo_menu" name="Anime2017" />
+        <menuitem id="anime2017_modelo_submenu" name="Series" parent="anime2017_modelo_menu" sequence="0" />
+
+        <!--  Enlazamos la acción al submenú-->
+        <menuitem id="anime_modelo_menu_action" name="Anime2017"
+          parent="anime2017_modelo_submenu" sequence="0" action="anime2017_modelo_action"/>
+
+
+     </data>
+</openerp>
